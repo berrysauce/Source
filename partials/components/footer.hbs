@@ -13,23 +13,15 @@
                 {{navigation type="secondary"}}
             </nav>
             <div class="gh-footer-copyright">
-                Powered by <a href="https://ghost.org/" target="_blank" rel="noopener">Ghost</a>
+                Copyright © <span id="copyright-year">2024</span> kontokultur
+                <script type="text/javascript">
+                    const d = new Date();
+                    const span = document.getElementById("copyright-year")
+                    let year = d.getFullYear();
+                    span.innerHTML = year
+                </script>
             </div>
         </div>
-
-        {{#if @site.members_enabled}}
-            {{#unless @member}}
-                <section class="gh-footer-signup">
-                    <h2 class="gh-footer-signup-header is-title">
-                        {{#if @custom.signup_heading}}{{@custom.signup_heading}}{{else}}{{@site.title}}{{/if}}
-                    </h2>
-                    <p class="gh-footer-signup-subhead is-body">
-                        {{#if @custom.signup_subheading}}{{@custom.signup_subheading}}{{else}}{{@site.description}}{{/if}}
-                    </p>
-                    {{> "email-subscription" email_field_id="footer-email"}}
-                </section>
-            {{/unless}}
-        {{/if}}
 
     </div>
 </footer>
